@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/prova.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Pesquisar...">
+            </div>
+            <i class="fas fa-user-circle profile-icon"></i>
+        </header>
+
+        <!-- Seção em Destaque -->
+        <section class="featured-albums">
+            <div class="album-card">
+                <img src="https://source.unsplash.com/random/800x800/?album-cover" class="album-cover" alt="Álbum">
+                <h3>Nome do Álbum</h3>
+                <p>Artista</p>
+                <div class="play-overlay">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <!-- Adicione mais cards aqui -->
+        </section>
+
+        <!-- Carrossel de Novos Lançamentos -->
+        <h2>Novos Lançamentos</h2>
+        <div class="carousel">
+            <div class="album-card carousel-item">
+                <img src="https://source.unsplash.com/random/800x800/?music" class="album-cover" alt="Novo Álbum">
+                <h4>Novo Álbum</h4>
+                <p>Artista</p>
+            </div>
+            <!-- Adicione mais itens aqui -->
+        </div>
+
+        <!-- Seção de Artistas -->
+        <h2>Seus Artistas</h2>
+        <div class="artist-section">
+            <img src="https://source.unsplash.com/random/800x800/?singer" class="artist-avatar" alt="Artista">
+            <div>
+                <h3>Nome do Artista</h3>
+                <p>12M ouvintes mensais</p>
+                <button class="btn btn-primary">Seguir</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/prova.js"></script>
+</body>
+</html>
