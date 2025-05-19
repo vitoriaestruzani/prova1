@@ -49,12 +49,14 @@ def cadastrar_categoria():
     except:
         print("Erro ao salvar a categoria.")
 
+    
     categorias.append(nova_categoria)
 
 def cadastrar_produto():
     global id_categoria
     global id_produto
     global categorias
+    global produtos
 
     try:
         with open('categorias.json', 'r') as arquivo:
@@ -77,9 +79,13 @@ def cadastrar_produto():
        
     while True:
         try:
-            id_categoria = int(input("Escolha o ID da categoria: "))
-            existe = 'id_categoria' == id_categoria
-            if existe:
+            id_categoria_selecionada = int(input("Escolha o ID da categoria: "))
+            categoria_encontrada = False
+            for categoria in categorias:
+                if categoria['id'] == id_categoria_selecionada:
+                    categoria_encontrada = True
+                    break
+            if categoria_encontrada:
                 break
             else:
                 print("Categoria não encontrada. Tente novamente.")
@@ -96,43 +102,57 @@ def cadastrar_produto():
         except ValueError:
             print("Digite um preço válido.")
 
-    id_produto += 1
-
     novo_produto = {
         "id_produto": id_produto,
         "nome_produto": nome,
         "preco": preco,
-        "id_categoria_associada": id_categoria
+        "id_categoria_associada": id_categoria_selecionada
     }
 
+    id_produto += 1
     produtos.append(novo_produto)
 
     try:
         with open('produtos.json', 'w') as arquivo:
             json.dump(produtos, arquivo, indent=4)
-        print("Produto cadastrado com sucesso!\n")
+        print("Produto cadastrado com sucesso!")
     except:
         print("Erro ao salvar o produto.")
 
 def listar_produtos():
-    if dados:
+
+    try:
+        with open('produtos.json', 'r') as arquivo:
+            produtos = json.load(arquivo)
+    except FileNotFoundError:
+        print("Arquivo 'produtos.json' não encontrado.")
+    except json.JSONDecodeError:
+        print("O arquivo de produtos existe, mas está vazio ou corrompido.")
+
+    try:
+        with open('categorias.json', 'r') as arquivo:
+            categorias = json.load(arquivo)
+    except FileNotFoundError:
+        print("Arquivo 'categorias.json' não encontrado.")
+    except json.JSONDecodeError:
+        print("O arquivo de categorias existe, mas está vazio ou corrompido.")
+
+    if produtos:
         print("Sua lista de produtos:")
         i = 1
-        for produto in dados:
-            print(i, ". Categoria:", ['categoria'])
-            print("   Nome:", ['nome'])
-            print("   Preço: R$", ['preco'])
+        for produto in produtos:
+            print(i, f". Categoria: {id_categoria}")
+            print(f"Nome: {produto['nome_produto']}")
+            print(f"Preço: R$ {produto['preco']}")
             i += 1
     else:
         print("Seu estoque está vazio.")
 
-
-###NÃO MEXER MAIS NESSA PORRA
 def sistema_ecommerce():
     print("=== SISTEMA DE GESTÃO ===")
 
     while True:
-        print("\n=== MENU ===")
+        print("=== MENU ===")
         print("1. Cadastrar nova categoria")
         print("2. Cadastrar novo produto")
         print("3. Listar produtos com nome da categoria")

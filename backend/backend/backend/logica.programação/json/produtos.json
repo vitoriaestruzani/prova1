@@ -1,0 +1,14 @@
+[
+    {
+        "id_produto": 0,
+        "nome_produto": "capa",
+        "preco": 234.0,
+        "id_categoria_associada": 1
+    },
+    {
+        "id_produto": 0,
+        "nome_produto": "nome",
+        "preco": 23.0,
+        "id_categoria_associada": 1
+    }
+]
