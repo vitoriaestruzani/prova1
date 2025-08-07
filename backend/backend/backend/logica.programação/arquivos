@@ -1,0 +1,17 @@
+#arquivos
+
+open(arquivo.txt, modo)
+
+modo de leitura -> "r"
+modo de escrita -> "w"
+modo de escrita -> "a" acresta o conteudo
+
+
+open("arquivo.txt", "w"):
+as arquivo
+
+arquivo.write("olá, bambi") 
+arquivo.write("tudo bem?")
+
+conteudo = arquivo.read()
+print(conteudo)
