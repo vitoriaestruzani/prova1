@@ -1,8 +1,8 @@
 def caixa_eletronico():
     nome = input("Digite seu nome para cadastrar a conta: ")
+    saldo = 0.00
     print("Bem-vindo(a), " + nome + "! Seu saldo atual é: R$ ", saldo)
     
-    saldo = 0.00
     opcao = ""
 
     while opcao != "Sair":
