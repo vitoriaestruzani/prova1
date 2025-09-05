@@ -1,0 +1,29 @@
+[
+    {
+        "nome": "Nsx",
+        "ano": "1990",
+        "km": "100.000",
+        "marca": "Honda",
+        "preco": "R$ 34.000,00",
+        "cor": "Branco",
+        "quantidade": "2"
+    },
+    {
+        "nome": "NSX",
+        "ano": "1991",
+        "km": "100.000KM",
+        "marca": "HONDA",
+        "preco": "R$33.000,00",
+        "cor": "BRANCO",
+        "quantidade": "3"
+    },
+    {
+        "nome": "nsx",
+        "ano": "91",
+        "km": "100.000",
+        "marca": "honda",
+        "preco": "33000",
+        "cor": "branco",
+        "quantidade": "2"
+    }
+]
