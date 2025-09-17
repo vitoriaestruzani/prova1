@@ -1,0 +1,23 @@
+DJANGO
+
+.crud  
+    .create
+    .read
+    .update
+    .delete
+
+padrão MVT
+
+.model
+    [modelo, objeto]
+    {armazena infos}
+.view
+    [lógica do backend]
+    {funções}
+.template
+    [parte visual]
+    {frontend}
+
+
+.migration 
+    [migrar para o banco de dados]

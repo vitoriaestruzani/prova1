@@ -1,0 +1,9 @@
+C:\Users\Aluno\AppData\Roaming\Python\Python313\Scripts\django-admin startproject config
+   projetonovo
+PS C:\Users\Aluno\Downloads\prova1\gerenciador_web\config> python manage.py startapp tarefas
+    pequenos apps ou funcionalidades
+python manage.py makemigrations
+PS C:\Users\Aluno\Downloads\prova1\gerenciador_web\config> python manage.py makemigrations
+    migrations
+PS C:\Users\Aluno\Downloads\prova1\gerenciador_web\config> python manage.py migrate 
+    
