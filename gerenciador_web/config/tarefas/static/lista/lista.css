@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 200px;
+    background: #990e9e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tarefas {
+    list-style-type: square;
+    list-style-position: inside;
+    padding-left: 20px;
+    color: rgb(115, 15, 165);
+  }
+  
