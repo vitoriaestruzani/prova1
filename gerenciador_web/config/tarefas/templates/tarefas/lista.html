@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="{% static 'lista/lista.css'%}">
 </head>
 <body>
-    <h1> Gerenciados de Tarfeas Web</h1>
+    <h1> Gerenciador de Tarefas Web</h1>
 
     {% for tarefa in minhas_tarefas %}
         <div class="tarefa {% if tarefa.concluida%}concluida{% endif %}">
-            <h2>{{tarefa.titulo}}</h2>
+            <h2><a href="{% url 'detalhe_tarefa' tarefa.id %}"{{tarefa.titulo}}></h2>
             <p>{{tarefa.descricao}}</p>
             <small>Criada em: {{tarefa.data_criacao}}</small>
         </div>

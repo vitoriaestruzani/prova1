@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Detalhe: {{ tarefa.titulo }}</title>
+    <link rel="stylesheet" href="{ %static 'detalhe/detalhe.css'%}">
+</head>
+
+<body>
+    <h1>{{tarefa.titulo}}</h1>
+    <p><strong>Descrção</strong>{{tarefa.descricao|linebreaks}}</p>
+    <p><strong>Status:</strong> {%if tarefa.concluida%}Concluída{%else%}Pendente{%endif%}</p>    
+    <small> Criada em: {{tarefa.data_criacao}}</small>
+</body>
+</html>
