@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Tarefa
 
 
@@ -23,5 +23,14 @@ def detalhe_tarefa(request, tarefa_id):
 
 def adicionar_tarefa(request):
     if request.method == 'POST':
-        titulo=request.POST.get('titulo')
-        descricao
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        Tarefa.objects.create(titulo=titulo, descricao=descricao)
+        return redirect ('listar_tarefas')
+    return render(request, 'tarefas/form_tarefa.html')
+
+#métodos http
+# POST: Envia dados para o servidor 
+# GET: Busca dados no servidor
+# PUT: Atualiza recursos existentes
+# DELETE:Remove recursos seleconados 
