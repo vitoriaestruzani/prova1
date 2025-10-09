@@ -34,3 +34,26 @@ def adicionar_tarefa(request):
 # GET: Busca dados no servidor
 # PUT: Atualiza recursos existentes
 # DELETE:Remove recursos seleconados 
+
+def alterar_tarefa(request, tarefa_id):
+    tarefa = get_object_or_404(Tarefa, pk=tarefa_id)
+    
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        projeto_id = request.POST.get('projeto')
+        concluida = request.POST.get('concluida') == 'on' 
+
+      
+        tarefa.titulo = titulo
+        tarefa.descricao = descricao
+        tarefa.concluida = concluida
+        
+        tarefa.save()
+        
+        return redirect('listar_tarefas')
+
+    context = {
+        'tarefa': tarefa,
+    }
+    return render(request, 'tarefas/form_tarefa.html', context)
