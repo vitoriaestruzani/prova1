@@ -15,6 +15,8 @@
 
     <hr>
     <a href="{% url 'alterar_tarefa' tarefa.id %}">Alterar Tarefa</a>|
-    <a href="{%url 'listar_tarefas'%}">Voltar para Lista</a>
+    <a href="{% url 'listar_tarefas' %}">Voltar para Lista</a>
+    <a href="{% url 'excluir_tarefa' tarefa.id %}">Excluir</a>
+
 </body>
 </html>

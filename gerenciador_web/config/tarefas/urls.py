@@ -11,5 +11,8 @@ urlpatterns = [
 
     #alterar tarefa
     path('<int:tarefa_id>/alterar/', views.alterar_tarefa, name='alterar_tarefa'),
+
+    #excluir tarefa
+    path('<int:tarefa_id>/excluir/', views.excluir_tarefas, name='excluir_tarefa'),
     
 ]

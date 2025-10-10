@@ -41,7 +41,7 @@ def alterar_tarefa(request, tarefa_id):
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
-        projeto_id = request.POST.get('projeto')
+        #projeto_id = request.POST.get('projeto')
         concluida = request.POST.get('concluida') == 'on' 
 
       
@@ -57,3 +57,11 @@ def alterar_tarefa(request, tarefa_id):
         'tarefa': tarefa,
     }
     return render(request, 'tarefas/form_tarefa.html', context)
+
+def excluir_tarefas(request, tarefa_id):
+    tarefa = get_object_or_404(Tarefa, pk=tarefa_id)
+
+    if request.method == 'POST': 
+        tarefa.delete()
+        return redirect('listar_tarefas')
+    return render (request, 'tarefas/confirmar_exclusao.html', {'tarefa': tarefa})
