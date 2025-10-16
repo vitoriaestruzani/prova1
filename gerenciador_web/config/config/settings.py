@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tarefas.apps.TarefasConfig',
+    'projetos.apps.ProjetosConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -126,6 +128,7 @@ STATICFILES_DIRS = [
 
 STATICFILES_DIRS = [
     BASE_DIR / "tarefas/static",
+    BASE_DIR / "projetos/static",
 ]
 
 # Default primary key field type

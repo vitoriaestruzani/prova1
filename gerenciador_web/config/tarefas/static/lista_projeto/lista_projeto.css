@@ -1,0 +1,64 @@
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f0f0ff;
+    color: #4b4b4b;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    color: #150ba8;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #698cff;
+}
+
+a:hover {
+    color: #3d4ddb;
+}
+
+.tarefa {
+    background-color: #ffffff;
+    border-left: 6px solid #b6bdff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tarefa h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.tarefa p {
+    margin: 0.5rem 0;
+}
+
+.tarefa small {
+    font-size: 0.8rem;
+    color: #999999;
+}
+
+.tarefa.concluida {
+    opacity: 0.6;
+    border-left-color: #c3bfd8;
+    text-decoration: line-through;
+}
+
+a strong {
+    background-color: #8269ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+a strong:hover {
+    background-color: #3d50db;
+}
