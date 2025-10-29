@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
     {% load static %}
-    <meta charset="UTF-8">
-    <title>minha lista de tarefas</title>
-    <link rel="stylesheet" href="{% static 'lista/lista.css'%}">
-</head>
-<body>
-    <h1> Gerenciador de Tarefas Web</h1>
-    <a href="{% url 'adicionar_tarefa'%}"><strong>+ Add Tarefa</strong></a>
-    <hr>
-
-    {% for tarefa in minhas_tarefas %}
-        <div class="tarefa {% if tarefa.concluida%}concluida{% endif %}">
-            
-            <h2><a href="{% url 'detalhe_tarefa' tarefa.id %}">{{tarefa.titulo}}</a></h2>
-            <p>{{tarefa.descricao}}</p>
-            <small>Criada em: {{tarefa.data_criacao}}</small>
-        </div>
-    {%empty%}
-        <p> Nennuma tarefa cadastrada ainda. Adicione algumas no <a href="/admin/">Admin</a></p>
-    {%endfor%}
-</body>
+    <meta charset="UTF-8"> 
+    <title>Minha Lista de Tarefas</title> 
+    <link rel="stylesheet" href="{% static 'lista/lista.css' %}">
+</head> 
+<body> 
+    <h1>Gerenciador de Tarefas Web</h1> 
+    <a href="{% url 'adicionar_tarefa' %}"><strong>+ Adicionar Nova Tarefa</strong></a> 
+    <hr> 
+    {% for tarefa in minhas_tarefas %} 
+        <div class="tarefa {% if tarefa.concluida %}concluida{% endif %}"> 
+            <h2><a href="{% url 'detalhe_tarefa' tarefa.id %}">{{ tarefa.titulo }}</a></h2>            
+            <p>{{ tarefa.descricao }}</p> 
+            <p>Projeto :{{tarefa.projeto.nome}}</p>
+            <small>Criada em: {{ tarefa.data_criacao }}</small> 
+        </div> 
+    {% empty %} 
+        <p>Nenhuma tarefa cadastrada ainda. Adicione algumas no <a href="/admin/">Admin</a>!</p> 
+    {% endfor %} 
+</body> 
 </html>

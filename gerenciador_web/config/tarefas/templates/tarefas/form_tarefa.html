@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
     {% load static %}
-    <meta charset="UTF-8">
-    <title>{% if tarefa %}Alterar Tarefa{% else %}Adicionar Tarefa{% endif %}</title> 
+    <meta charset="UTF-8"> 
     <link rel="stylesheet" href="{% static 'form_tarefa/form_tarefa.css' %}">
-
-</head>
-<body>
+    <title>{% if tarefa %}Alterar Tarefa{% else %}Adicionar Tarefa{% endif %}</title> 
+</head> 
+<body> 
     <h1>{% if tarefa %}Alterar Tarefa{% else %}Adicionar Nova Tarefa{% endif %}</h1> 
-
-    <form method ="POST">
-        <!---csfr_token serve para proteger o sistema de ataques no envio do formulario-->
+ 
+    <form method="POST"> 
         {% csrf_token %} 
-        <label for ="titulo">Título:</label><br>
+        <label for="titulo">Título:</label><br> 
         <input type="text" id="titulo" name="titulo" value="{{ tarefa.titulo|default:'' }}" required><br><br> 
-
-        <label for="descricao">Descrição:</label><br>
+ 
+        <label for="descricao">Descrição:</label><br> 
         <textarea id="descricao" name="descricao" rows="4" cols="50">{{ tarefa.descricao|default:'' }}</textarea><br><br> 
-
+        
+        
         {% if tarefa %} 
             <label for="concluida">Concluída:</label> 
             <input type="checkbox" id="concluida" name="concluida" {% if tarefa.concluida %}checked{% endif %}><br><br> 
         {% endif %} 
-
-        <button type="submit">Salvar Tarefa</button>
-    </form>
-    <a href="{% url 'listar_tarefas'%}">Cancelar</a>
-</body>
-</html>
+        
+        <select id="projeto" name="projeto"> 
+        {% for projeto in projetos %} 
+            <option value="{{ projeto.id }}">{{ projeto.nome }}</option> 
+        {% endfor %} 
+        </select><br><br> 
+ 
+        <button type="submit">Salvar</button> 
+    </form> 
+    <a href="{% url 'listar_tarefas' %}">Cancelar</a> 
+</body> 
+</html> 

@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from projetos.models import Projeto
 from .models import Tarefa
 
 
@@ -22,12 +24,16 @@ def detalhe_tarefa(request, tarefa_id):
     return render (request, 'tarefas/detalhe.html', {'tarefa': tarefa})
 
 def adicionar_tarefa(request):
+    projetos=Projeto.objects.all()
+    
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
-        Tarefa.objects.create(titulo=titulo, descricao=descricao)
+        projeto_id=request.POST.get('projeto')#pega o projeto selecionado
+        projeto_selecionado=Projeto.objects.get(pk=projeto_id)
+        Tarefa.objects.create(titulo=titulo, descricao=descricao, projeto=projeto_selecionado)
         return redirect ('listar_tarefas')
-    return render(request, 'tarefas/form_tarefa.html')
+    return render(request, 'tarefas/form_tarefa.html', {'projetos': projetos})
 
 #métodos http
 # POST: Envia dados para o servidor 
@@ -36,26 +42,33 @@ def adicionar_tarefa(request):
 # DELETE:Remove recursos seleconados 
 
 def alterar_tarefa(request, tarefa_id):
+    projetos=Projeto.objects.all()
+
     tarefa = get_object_or_404(Tarefa, pk=tarefa_id)
     
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
-        #projeto_id = request.POST.get('projeto')
+        projeto_id=request.POST.get('projeto')#pega o projeto selecionado
+        projeto_selecionado=get_object_or_404(Projeto, pk=projeto_id)
+
         concluida = request.POST.get('concluida') == 'on' 
 
       
         tarefa.titulo = titulo
         tarefa.descricao = descricao
         tarefa.concluida = concluida
+        tarefa.projeto=projeto_selecionado
         
         tarefa.save()
         
         return redirect('listar_tarefas')
 
-    context = {
-        'tarefa': tarefa,
+    context={
+            'tarefa':tarefa,
+            'projetos':projetos
     }
+    
     return render(request, 'tarefas/form_tarefa.html', context)
 
 def excluir_tarefas(request, tarefa_id):
